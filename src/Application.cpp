@@ -51,16 +51,19 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
             selectedShape->setPosition(mx, my);
             canvas->redraw();       
         }
-
     }
 }
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
+    TOOL tool = toolbar->getTool();
 
     if (action == CLEAR) {
         canvas->clear();
         canvas->redraw();
+    }
+    if (tool != MOUSE) {
+        selectedShape = nullptr;
     }
 }
 
@@ -75,13 +78,13 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 400, 400, "Lecture 21");
+    window = new Window(25, 75, 450, 450, "Lecture 21");
 
     selectedShape = nullptr;
 
     toolbar = new Toolbar(0, 0, 50, 400);
-    canvas = new Canvas(50, 0, 350, 350);
-    colorSelector = new ColorSelector(50, 350, 350, 50);
+    canvas = new Canvas(50, 0, 400, 400);
+    colorSelector = new ColorSelector(50, 400, 350, 50);
     colorSelector->box(FL_BORDER_BOX);
 
     window->add(toolbar);

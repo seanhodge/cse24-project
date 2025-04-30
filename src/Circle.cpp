@@ -33,11 +33,16 @@ void Circle::draw() {
 }
 
 bool Circle::contains(float mx, float my) {
+    if (mx >= x - radius && mx <= x + radius && my <= y + radius && my >= y - radius) {
+        return true;
+    }
     return false;
 }
 
 void Circle::setColor(float r, float g, float b) {
-    //
+    this->r = r;
+    this->g = g;
+    this->b = b;
 }
 
 void Circle::setPosition(float x, float y) {
