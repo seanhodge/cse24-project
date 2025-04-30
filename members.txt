@@ -1,0 +1,23 @@
+Group Name
+----------
+
+Solo Dolo
+
+
+Members
+-------
+
+Sean Hodge - seanhodge
+
+
+Designated Submitter
+--------------------
+
+Sean Hodge
+
+
+Github Repo Link
+--------------------
+
+https://github.com/seanhodge/cse24-project.git
+
