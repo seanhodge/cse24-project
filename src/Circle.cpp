@@ -39,3 +39,8 @@ bool Circle::contains(float mx, float my) {
 void Circle::setColor(float r, float g, float b) {
     //
 }
+
+void Circle::setPosition(float x, float y) {
+    this->x = x;
+    this->y = y;
+}

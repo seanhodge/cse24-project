@@ -46,6 +46,13 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
         canvas->addPoint(mx, my, 1.0, 1.0, 1.0, 14);
         canvas->redraw();
     }
+    else if (tool == MOUSE) {
+        if (selectedShape) {
+            selectedShape->setPosition(mx, my);
+            canvas->redraw();       
+        }
+
+    }
 }
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
