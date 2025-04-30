@@ -58,6 +58,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == polygonButton) {
         tool = POLYGON;
     }
+    else if (sender == undoButton) {
+        action = UNDO;
+    }
     else if (sender == clearButton) {
         action = CLEAR;
     }
@@ -113,6 +116,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(triangleButton, Toolbar::onClick);
     ON_CLICK(rectangleButton, Toolbar::onClick);
     ON_CLICK(polygonButton, Toolbar::onClick);
+    ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);
 }

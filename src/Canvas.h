@@ -28,6 +28,8 @@ public:
 
     void render();
 
+    void undo();
+
     Shape* getSelectedShape(float mx, float my);
 
 };

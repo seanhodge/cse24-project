@@ -44,6 +44,12 @@ void Canvas::render() {
     }
 }
 
+void Canvas::undo() {
+    if (!shapes.empty()) {
+        shapes.pop_back();
+    }
+}
+
 Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;
 
