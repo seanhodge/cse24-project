@@ -25,6 +25,8 @@ public:
 
     void addTriangle(float x, float y, float r, float g, float b);
 
+    void addPentagon(float x, float y, float r, float g, float b);
+
     void clear();
 
     void undo();

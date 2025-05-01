@@ -3,6 +3,7 @@
 #include "Scribble.h"
 #include "Shape.h"
 #include "Triangle.h"
+#include "Pentagon.h"
 #include <GL/freeglut.h>
 #include <cstdlib>
 #include <vector>
@@ -22,6 +23,10 @@ void Canvas::addRectangle(float x, float y, float r, float g, float b) {
 
 void Canvas::addCircle(float x, float y, float r, float g, float b) {
     shapes.push_back(new Circle(x, y, r, g, b));
+}
+
+void Canvas::addPentagon(float x, float y, float r, float g, float b) {
+    shapes.push_back(new Pentagon(x, y, r, g, b));
 }
 
 void Canvas::addTriangle(float x, float y, float r, float g, float b) {

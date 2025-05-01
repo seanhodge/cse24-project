@@ -30,6 +30,10 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
         canvas->addTriangle(mx, my, color.getR(), color.getG(), color.getB());
         canvas->redraw();
     }
+    else if (tool == PENTAGON) { 
+        canvas->addPentagon(mx, my, color.getR(), color.getG(), color.getB());
+        canvas->redraw();
+    }
     else if (tool == MOUSE) {
         selectedShape = canvas->getSelectedShape(mx, my);
     }

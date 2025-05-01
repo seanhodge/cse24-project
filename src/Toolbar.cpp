@@ -28,7 +28,7 @@ void Toolbar::visualizeSelectedTool() {
     else if (tool == RECTANGLE) {
         rectangleButton->color(FL_WHITE);
     }
-    else if (tool == POLYGON) {
+    else if (tool == PENTAGON) {
         polygonButton->color(FL_WHITE);
     }
     else if (tool == MOUSE) {
@@ -57,7 +57,7 @@ void Toolbar::onClick(bobcat::Widget* sender) {
         tool = RECTANGLE;
     }
     else if (sender == polygonButton) {
-        tool = POLYGON;
+        tool = PENTAGON;
     }
     else if (sender == undoButton) {
         action = UNDO;
