@@ -30,6 +30,8 @@ public:
 
     void undo();
 
+    void erase(float mx, float my);
+
     Shape* getSelectedShape(float mx, float my);
 
 };

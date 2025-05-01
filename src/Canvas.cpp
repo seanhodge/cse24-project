@@ -50,6 +50,17 @@ void Canvas::undo() {
     }
 }
 
+void Canvas::erase(float mx, float my) {
+    for (unsigned int i = 0; i < shapes.size(); i++) {
+        // ask every shape if we clicked on it
+        if (shapes[i]->contains(mx, my)) {
+            std::cout << "Erasing  shape[" << i << "]" << std::endl;
+            shapes.erase(shapes.begin() + i);
+            break;
+        }
+    }
+}
+
 Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;
 
