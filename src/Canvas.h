@@ -40,6 +40,10 @@ public:
     void endScribble();
 
     void render();
+
+    void sendToBack();
+
+    void bringToFront();
 };
 
 #endif

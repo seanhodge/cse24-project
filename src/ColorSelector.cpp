@@ -50,8 +50,8 @@ void ColorSelector::visualizeSelectedColor() { // highlights
     else if (color == VIOLET) {
         violetButton->label("@-5square");
         redInput->value(148);
-        greenInput->value(211);
-        blueInput->value(0);
+        greenInput->value(0);
+        blueInput->value(211);
     }
     else if (color == BLACK) {
         blackButton->label("@-5square");
@@ -164,35 +164,36 @@ Color ColorSelector::getColor() const {
 }
 
 ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
-    redButton = new Button(x, y, 25, 25, "");
+    redButton = new Button(x, y, 20, 20, "");
     redButton->color(FL_RED);
-    orangeButton = new Button(x, y + 25, 25, 25, "");
+    orangeButton = new Button(x, y + 20, 20, 20, "");
     orangeButton->color(fl_rgb_color(255, 127, 0));
-    yellowButton = new Button(x + 25, y, 25, 25, "");
+    yellowButton = new Button(x + 20, y, 20, 20, "");
     yellowButton->color(FL_YELLOW);
-    greenButton = new Button(x + 25, y + 25, 25, 25, "");
+    greenButton = new Button(x + 20, y + 20, 20, 20, "");
     greenButton->color(FL_GREEN);
-    blueButton = new Button(x + 50, y, 25, 25, "");
+    blueButton = new Button(x + 40, y, 20, 20, "");
     blueButton->color(FL_BLUE);
-    violetButton = new Button(x + 50, y + 25, 25, 25, "");
+    violetButton = new Button(x + 40, y + 20, 20, 20, "");
     violetButton->color(fl_rgb_color(148, 0, 211));
-    whiteButton = new Button(x + 75, y, 25, 25, "");
+    whiteButton = new Button(x + 60, y, 20, 20, "");
     whiteButton->color(FL_WHITE);
-    blackButton = new Button(x + 75, y + 25, 25, 25, "");
+    blackButton = new Button(x + 60, y + 20, 20, 20, "");
     blackButton->color(FL_BLACK);
 
-    redInput = new IntInput(x + 100, y, 50, 50);
+    redInput = new IntInput(x + 80, y, 40, 40);
     redInput->textsize(18);
     redInput->color(fl_rgb_color(232, 130, 130));
-    greenInput = new IntInput(x + 150, y, 50, 50);
+    greenInput = new IntInput(x + 120, y, 40, 40);
     greenInput->textsize(18);
     greenInput->color(fl_rgb_color(130, 232, 130));
-    blueInput = new IntInput(x + 200, y, 50, 50);
+    blueInput = new IntInput(x + 160, y, 40, 40);
     blueInput->textsize(18);
     blueInput->color(fl_rgb_color(130, 130, 232));
 
-    previewBox = new Fl_Box(300, y, 50, 50, "Color");
+    previewBox = new Fl_Box(x + 200, y, 40, 40, "Color");
     previewBox->box(FL_BORDER_BOX);
+    previewBox->labelsize(10);
 
     color = RED;
 

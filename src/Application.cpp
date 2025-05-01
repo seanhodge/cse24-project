@@ -63,6 +63,7 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
+    TOOL tool = toolbar->getTool();
 
     if (action == CLEAR) {
         canvas->clear();
@@ -72,6 +73,10 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     else if (action == UNDO) {
         canvas->undo();
         canvas->redraw();
+        selectedShape = nullptr;
+    }
+
+    if ((tool != MOUSE) || (action != SEND_TO_BACK) || (action != BRING_TO_FRONT)) {
         selectedShape = nullptr;
     }
 }
@@ -87,13 +92,13 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 450, 450, "Paint and Suffering");
+    window = new Window(25, 75, 440, 440, "Paint and Suffering");
 
     selectedShape = nullptr;
 
-    toolbar = new Toolbar(0, 0, 50, 450);
-    canvas = new Canvas(50, 0, 400, 400);
-    colorSelector = new ColorSelector(50, 400, 400, 50);
+    toolbar = new Toolbar(0, 0, 40, 450);
+    canvas = new Canvas(40, 0, 420, 400);
+    colorSelector = new ColorSelector(40, 400, 400, 50);
     colorSelector->box(FL_BORDER_BOX);
 
     window->add(toolbar);

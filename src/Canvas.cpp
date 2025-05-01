@@ -80,6 +80,10 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
 
 }
 
+void Canvas::bringToFront() {
+    
+}
+
 void Canvas::startScribble(){
     curr = new Scribble();
 }

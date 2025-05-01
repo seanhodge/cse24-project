@@ -1,4 +1,5 @@
 #include "Toolbar.h"
+#include "Enums.h"
 using namespace bobcat;
 
 void Toolbar::deselectAllTools() {
@@ -67,6 +68,12 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == mouseButton) {
         tool = MOUSE;
     }
+    else if (sender == sendToBackButton) {
+        action = SEND_TO_BACK;
+    }
+    else if (sender == bringToFrontButton) {
+        action = BRING_TO_FRONT;
+    }
 
     if (onChangeCb) {
         onChangeCb(this);
@@ -85,15 +92,17 @@ ACTION Toolbar::getAction() const {
 }
 
 Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
-    pencilButton = new Image(x, y, 50, 50, "./assets/pencil.png");
-    eraserButton = new Image(x, y + 50, 50, 50, "./assets/eraser.png");
-    circleButton = new Image(x, y + 100, 50, 50, "./assets/circle.png");
-    triangleButton = new Image(x, y + 150, 50, 50, "./assets/triangle.png");
-    rectangleButton = new Image(x, y + 200, 50, 50, "./assets/rectangle.png");
-    polygonButton = new Image(x, y + 250, 50, 50, "./assets/polygon.png");
-    undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
-    clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
-    mouseButton = new Image(x, y + 400, 50, 50, "./assets/mouse.png");
+    pencilButton = new Image(x, y, 40, 40, "./assets/pencil.png");
+    eraserButton = new Image(x, y + 40, 40, 40, "./assets/eraser.png");
+    circleButton = new Image(x, y + 80, 40, 40, "./assets/circle.png");
+    triangleButton = new Image(x, y + 120, 40, 40, "./assets/triangle.png");
+    rectangleButton = new Image(x, y + 160, 40, 40, "./assets/rectangle.png");
+    polygonButton = new Image(x, y + 200, 40, 40, "./assets/polygon.png");
+    undoButton = new Image(x, y + 240, 40, 40, "./assets/undo.png");
+    clearButton = new Image(x, y + 280, 40, 40, "./assets/clear.png");
+    bringToFrontButton = new Image(x, y + 320, 40, 40, "./assets/bring-to-front.png");
+    sendToBackButton = new Image(x, y + 360, 40, 40, "./assets/send-to-back.png");
+    mouseButton = new Image(x, y + 400, 40, 40, "./assets/mouse.png");
 
     tool = PENCIL;
     action = NONE;
@@ -106,6 +115,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     polygonButton->box(FL_BORDER_BOX);
     undoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
+    bringToFrontButton->box(FL_BORDER_BOX);
+    sendToBackButton->box(FL_BORDER_BOX);
     mouseButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
