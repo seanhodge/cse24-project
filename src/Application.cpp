@@ -82,6 +82,13 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
             canvas->redraw();
         }
     }
+    else if (action == BRING_TO_FRONT) { // if element highlighted
+        if (selectedShape) {
+            cout << "Bring to front" << endl;
+            canvas->bringToFront(selectedShape);
+            canvas->redraw();
+        }
+    }
 
     if ((tool != MOUSE) && (action != SEND_TO_BACK) && (action != BRING_TO_FRONT)) { // not tools that select
         selectedShape = nullptr; 

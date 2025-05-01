@@ -47,7 +47,7 @@ public:
 
     void sendToBack(Shape* givenShape);
 
-    void bringToFront();
+    void bringToFront(Shape* givenShape);
 };
 
 #endif

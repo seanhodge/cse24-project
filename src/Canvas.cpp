@@ -95,6 +95,16 @@ void Canvas::sendToBack(Shape* givenShape) {
     }
 }
 
+void Canvas::bringToFront(Shape* givenShape) {
+    storageShape = givenShape;
+    for (int i = 0; i < shapes.size(); i++) {
+        if (givenShape == shapes[i]) {
+            shapes.erase(shapes.begin() + i);
+            shapes.push_back(givenShape);
+        }
+    }
+}
+
 void Canvas::startScribble(){
     curr = new Scribble();
 }
