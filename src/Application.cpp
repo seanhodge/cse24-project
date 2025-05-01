@@ -65,19 +65,26 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
     TOOL tool = toolbar->getTool();
 
-    if (action == CLEAR) {
+    if (action == CLEAR) { 
         canvas->clear();
         canvas->redraw();
-        selectedShape = nullptr;
+        selectedShape = nullptr; // deselect crash here
     }
     else if (action == UNDO) {
         canvas->undo();
         canvas->redraw();
-        selectedShape = nullptr;
+        selectedShape = nullptr; // deselect crash here
+    }
+    else if (action == SEND_TO_BACK) { // if element highlighted
+        if (selectedShape) {
+            cout << "Send to back" << endl;
+            canvas->sendToBack(selectedShape);
+            canvas->redraw();
+        }
     }
 
-    if ((tool != MOUSE) || (action != SEND_TO_BACK) || (action != BRING_TO_FRONT)) {
-        selectedShape = nullptr;
+    if ((tool != MOUSE) && (action != SEND_TO_BACK) && (action != BRING_TO_FRONT)) { // not tools that select
+        selectedShape = nullptr; 
     }
 }
 

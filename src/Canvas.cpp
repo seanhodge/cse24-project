@@ -1,9 +1,12 @@
 #include "Canvas.h"
 #include "Circle.h"
 #include "Scribble.h"
+#include "Shape.h"
 #include "Triangle.h"
 #include <GL/freeglut.h>
 #include <cstdlib>
+#include <vector>
+#include <iostream>
 
 Canvas::Canvas(int x, int y, int w, int h) : Canvas_(x, y, w, h) {
     curr = nullptr;
@@ -62,12 +65,14 @@ void Canvas::erase(float mx, float my) {
 
 Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;
+    selectedPosition = 0;
 
     for (unsigned int i = 0; i < shapes.size(); i++) {
         // ask every shape if we clicked on it
         if (shapes[i]->contains(mx, my)) {
             std::cout << "Clicked on shape[" << i << "]" << std::endl;
             selectedShape = shapes[i];
+            selectedPosition = i;
             break;
         }
     }
@@ -80,8 +85,14 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
 
 }
 
-void Canvas::bringToFront() {
-    
+void Canvas::sendToBack(Shape* givenShape) {
+    storageShape = givenShape;
+    for (int i = 0; i < shapes.size(); i++) {
+        if (givenShape == shapes[i]) {
+            shapes.erase(shapes.begin() + i);
+            shapes.insert(shapes.begin(), givenShape);
+        }
+    }
 }
 
 void Canvas::startScribble(){

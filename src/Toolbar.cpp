@@ -130,4 +130,6 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);
+    ON_CLICK(sendToBackButton, Toolbar::onClick);
+    ON_CLICK(bringToFrontButton, Toolbar::onClick);
 }
