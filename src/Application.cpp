@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "Enums.h"
+#include <bobcat_ui/bobcat_ui.h>
 
 using namespace bobcat;
 using namespace std;
@@ -9,7 +10,8 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
     Color color = colorSelector->getColor();
 
     if (tool == PENCIL) {
-        canvas->addPoint(mx, my, color.getR(), color.getG(), color.getB(), 7);
+        canvas->startScribble();
+        canvas->updateScribble(mx, my, color.getR(), color.getG(), color.getB(), 7);
         canvas->redraw();
     }
     else if (tool == ERASER) {
@@ -34,12 +36,16 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
 
 }
 
+void Application::onCanvasMouseUp(bobcat::Widget* sender, float mx, float my) {
+    canvas->endScribble();
+}
+
 void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
     TOOL tool = toolbar->getTool();
     Color color = colorSelector->getColor();
 
     if (tool == PENCIL) {
-        canvas->addPoint(mx, my, color.getR(), color.getG(), color.getB(), 7);
+        canvas->updateScribble(mx, my, color.getR(), color.getG(), color.getB(), 7);
         canvas->redraw();
     }
     else if (tool == ERASER) {
@@ -54,20 +60,17 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
     }
 }
 
+
 void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
-    TOOL tool = toolbar->getTool();
 
     if (action == CLEAR) {
         canvas->clear();
         canvas->redraw();
     }
-    if (action == UNDO) {
+    else if (action == UNDO) {
         canvas->undo();
         canvas->redraw();
-    }
-    if (tool != MOUSE) {
-        selectedShape = nullptr;
     }
 }
 
@@ -82,7 +85,7 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 450, 450, "Lecture 21");
+    window = new Window(25, 75, 450, 450, "Paint and Suffering");
 
     selectedShape = nullptr;
 
@@ -98,7 +101,7 @@ Application::Application() {
     ON_MOUSE_DOWN(canvas, Application::onCanvasMouseDown);
     ON_DRAG(canvas, Application::onCanvasDrag);
     ON_CHANGE(toolbar, Application::onToolbarChange);
+    ON_MOUSE_UP(canvas, Application::onCanvasMouseUp);
     ON_CHANGE(colorSelector, Application::onColorSelectorChange);
-
     window->show();
 }

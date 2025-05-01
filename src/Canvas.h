@@ -7,11 +7,12 @@
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Shape.h"
-#include "Triangle.h"
+#include "Scribble.h"
 
 class Canvas : public bobcat::Canvas_ {
-    std::vector<Point*> points;
     std::vector<Shape*> shapes;
+
+    Scribble* curr;
 
 public:
     Canvas(int x, int y, int w, int h);
@@ -26,14 +27,19 @@ public:
 
     void clear();
 
-    void render();
-
     void undo();
 
     void erase(float mx, float my);
 
     Shape* getSelectedShape(float mx, float my);
 
+    void startScribble();
+
+    void updateScribble(float x, float y, float r, float g, float b, int size);
+
+    void endScribble();
+
+    void render();
 };
 
 #endif

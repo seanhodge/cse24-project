@@ -15,7 +15,7 @@ public:
 
     virtual void setColor(float r, float g, float b) = 0;
 
-    virtual void setPosition(float x, float y) = 0;
+    virtual void setPosition(float mx, float my) = 0;
 
     // Since Shape contains at least one pure virtual function
     // Shape is an Abstract Data Type
