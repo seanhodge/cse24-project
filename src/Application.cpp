@@ -67,10 +67,12 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     if (action == CLEAR) {
         canvas->clear();
         canvas->redraw();
+        selectedShape = nullptr;
     }
     else if (action == UNDO) {
         canvas->undo();
         canvas->redraw();
+        selectedShape = nullptr;
     }
 }
 
