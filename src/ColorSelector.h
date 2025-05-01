@@ -4,6 +4,8 @@
 #include <bobcat_ui/all.h>
 #include "Color.h"
 #include "Enums.h"
+#include <FL/Fl_Hor_Slider.H>
+#include <bobcat_ui/int_input.h>
 
 class ColorSelector : public bobcat::Group {
     bobcat::Button* redButton;
@@ -11,13 +13,20 @@ class ColorSelector : public bobcat::Group {
     bobcat::Button* yellowButton;
     bobcat::Button* greenButton;
     bobcat::Button* blueButton;
-    bobcat::Button* indigoButton;
     bobcat::Button* violetButton;
+    bobcat::Button* whiteButton;
+    bobcat::Button* blackButton;
+
+    bobcat::IntInput* redInput;
+    bobcat::IntInput* blueInput;
+    bobcat::IntInput* greenInput;
+
+    Fl_Box* previewBox;
 
     COLOR color;
     void deselectAllColors();
     void visualizeSelectedColor();
-    void onClick(bobcat::Widget* sender);
+    void onUpdate(bobcat::Widget* sender);
 
 public:
     ColorSelector(int x, int y, int w, int h);
