@@ -19,6 +19,14 @@ Pentagon::Pentagon(float x, float y, float r, float g, float b) {
     this->b = b;
 }
 
+void Pentagon::plusSize() {
+    size += 0.2;
+}
+
+void Pentagon::minusSize() {
+    size -= 0.2;
+}
+
 void Pentagon::draw() {
     glColor3f(r, g, b);
 

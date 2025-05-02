@@ -21,6 +21,14 @@ Circle::Circle(float x, float y, float r, float g, float b) {
     this->b = b; 
 }
 
+void Circle::plusSize() {
+    radius += 0.2;
+}
+
+void Circle::minusSize() {
+    radius -= 0.2;
+}
+
 bool Circle::contains(float mx, float my) {
     if (mx >= x - radius && mx <= x + radius && my <= y + radius && my >= y - radius) {
         return true;

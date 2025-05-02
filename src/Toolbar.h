@@ -17,6 +17,9 @@ class Toolbar : public bobcat::Group {
     bobcat::Image* sendToBackButton;
     bobcat::Image* mouseButton;
 
+    bobcat::Button* sizeUpButton;
+    bobcat::Button* sizeDownButton;
+
     TOOL tool;
     ACTION action;
     void deselectAllTools();

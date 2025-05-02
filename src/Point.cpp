@@ -8,7 +8,7 @@ Point::Point() {
     r = 0.0;
     g = 0.0;
     b = 0.0;
-    size = 7;
+    size = 7.0;
 }
 
 Point::Point(float x, float y) : Point() {
@@ -22,7 +22,7 @@ Point::Point(float x, float y, float r, float g, float b) : Point(x, y) {
     this->b = b;
 }
 
-Point::Point(float x, float y, float r, float g, float b, int size) : Point(x, y, r, g, b) {
+Point::Point(float x, float y, float r, float g, float b, float size) : Point(x, y, r, g, b) {
     this->size = size;
 }
 
@@ -55,13 +55,21 @@ float Point::getB() const {
     return b;
 }
 
-int Point::getSize() const {
+float Point::getSize() const {
     return size;
 }
 
 bool Point::contains(float mx, float my) {
     return false;
     //
+}
+
+void Point::plusSize() {
+    size += 1;
+}
+
+void Point::minusSize() {
+    size -= 1;
 }
 
 void Point::setColor(float r, float g, float b) {

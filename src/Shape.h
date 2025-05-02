@@ -17,6 +17,12 @@ public:
 
     virtual void setPosition(float mx, float my) = 0;
 
+    virtual void plusSize() = 0;
+
+    virtual void minusSize() = 0;
+
+    // virtual float getSize() = 0;
+
     // Since Shape contains at least one pure virtual function
     // Shape is an Abstract Data Type
 

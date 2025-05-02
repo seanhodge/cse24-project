@@ -8,6 +8,12 @@
 class Scribble: public Shape {
     std::vector<Point*> points;
 
+    float x;
+    float y;
+
+    float originX;
+    float originY;
+
 public:
 
     void addPoint(float x, float y, float r, float g, float b, int size);
@@ -19,6 +25,14 @@ public:
     void setColor(float r, float g, float b);
 
     void setPosition(float x, float y);
+
+    void plusSize();
+
+     void minusSize();
+
+
+
+    Scribble();
 
     ~Scribble();
 };

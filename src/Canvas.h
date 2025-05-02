@@ -39,6 +39,8 @@ public:
 
     Shape* storageShape;
 
+    Shape* selectedShape;
+
     void startScribble();
 
     void updateScribble(float x, float y, float r, float g, float b, int size);
@@ -50,6 +52,10 @@ public:
     void sendToBack(Shape* givenShape);
 
     void bringToFront(Shape* givenShape);
+
+    void sizeUp(Shape* givenShape);
+
+    void sizeDown(Shape* givenShape);
 };
 
 #endif

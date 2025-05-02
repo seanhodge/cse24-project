@@ -39,6 +39,16 @@ bool Rectangle::contains(float mx, float my) {
     return false;
 }
 
+void Rectangle::plusSize() {
+    width += 0.1;
+    height += 0.1;
+}
+
+void Rectangle::minusSize() {
+    width -= 0.1;
+    height -= 0.1;
+}
+
 void Rectangle::setColor(float r, float g, float b) {
     this->r = r;
     this->g = g;

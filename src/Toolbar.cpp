@@ -74,6 +74,12 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == bringToFrontButton) {
         action = BRING_TO_FRONT;
     }
+    else if (sender == sizeUpButton) {
+        action = SIZE_UP;
+    }
+    else if (sender == sizeDownButton) {
+        action = SIZE_DOWN;
+    }
 
     if (onChangeCb) {
         onChangeCb(this);
@@ -104,6 +110,9 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     sendToBackButton = new Image(x, y + 360, 40, 40, "./assets/send-to-back.png");
     mouseButton = new Image(x, y + 400, 40, 40, "./assets/mouse.png");
 
+    sizeUpButton = new Button(x, y + 440, 40, 40, "+");
+    sizeDownButton = new Button(x, y + 480, 40, 40, "-");
+
     tool = PENCIL;
     action = NONE;
 
@@ -132,4 +141,6 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(mouseButton, Toolbar::onClick);
     ON_CLICK(sendToBackButton, Toolbar::onClick);
     ON_CLICK(bringToFrontButton, Toolbar::onClick);
+    ON_CLICK(sizeUpButton, Toolbar::onClick);
+    ON_CLICK(sizeDownButton, Toolbar::onClick);
 }

@@ -3,9 +3,9 @@
     DONE eraser tool (delete shape/scribble)
     DONE clear screen tool (delete all shapes/scribbles)
     DONE RGB color picker
-    4 shape tools
+    DONE 4 shape tools
     DONE selector tool (ability to select a shape/scribble by clicking on it)
-    ability to resize selected shape
+    DONE ability to resize selected shape
     DONE ability to change color of selected shape/scribble
     ability to move selected shape/scribble by dragging
     DONE ability to bring selected shape/scribble to the front

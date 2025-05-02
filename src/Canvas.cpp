@@ -110,6 +110,24 @@ void Canvas::bringToFront(Shape* givenShape) {
     }
 }
 
+void Canvas::sizeUp(Shape* givenShape) {
+    storageShape = givenShape;
+    for (int i = 0; i < shapes.size(); i++) {
+        if (givenShape == shapes[i]) {
+            shapes[i]->plusSize();
+        }
+    }
+}
+
+void Canvas::sizeDown(Shape* givenShape) {
+    storageShape = givenShape;
+    for (int i = 0; i < shapes.size(); i++) {
+        if (givenShape == shapes[i]) {
+            shapes[i]->minusSize();
+        }
+    }
+}
+
 void Canvas::startScribble(){
     curr = new Scribble();
 }

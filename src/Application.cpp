@@ -93,6 +93,20 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
             canvas->redraw();
         }
     }
+    else if (action == SIZE_UP) { // if element highlighted
+        if (selectedShape) {
+            cout << "Size up" << endl;
+            canvas->sizeUp(selectedShape);
+            canvas->redraw();
+        }
+    }
+    else if (action == SIZE_DOWN) { // if element highlighted
+        if (selectedShape) {
+            cout << "Size down" << endl;
+            canvas->sizeDown(selectedShape);
+            canvas->redraw();
+        }
+    }
 
     if ((tool != MOUSE) && (action != SEND_TO_BACK) && (action != BRING_TO_FRONT)) { // not tools that select
         selectedShape = nullptr; 
@@ -110,13 +124,13 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 440, 440, "Paint and Suffering");
+    window = new Window(25, 75, 440, 520, "Paint and Suffering");
 
     selectedShape = nullptr;
 
-    toolbar = new Toolbar(0, 0, 40, 450);
-    canvas = new Canvas(40, 0, 420, 400);
-    colorSelector = new ColorSelector(40, 400, 400, 50);
+    toolbar = new Toolbar(0, 0, 40, 520);
+    canvas = new Canvas(40, 0, 420, 480);
+    colorSelector = new ColorSelector(40, 480, 400, 50);
     colorSelector->box(FL_BORDER_BOX);
 
     window->add(toolbar);

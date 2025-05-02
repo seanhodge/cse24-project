@@ -21,6 +21,16 @@ Triangle::Triangle(float x, float y, float r, float g, float b) {
     this->b = b;
 }
 
+void Triangle::plusSize() {
+    width += 0.2;
+    height += 0.2;
+}
+
+void Triangle::minusSize() {
+    width -= 0.2;
+    height -= 0.2;
+}
+
 void Triangle::draw() {
     glColor3f(r, g, b);
 

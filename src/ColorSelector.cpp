@@ -1,8 +1,10 @@
 #include "ColorSelector.h"
+#include "Enums.h"
 #include <FL/Enumerations.H>
-#include <FL/Fl_Hor_Slider.H>
 #include <bobcat_ui/bobcat_ui.h>
-#include <FL/Fl_Valuator.H>
+#include <cstddef>
+#include "Toolbar.h"
+#include "Canvas.h"
 using namespace bobcat;
 
 void ColorSelector::deselectAllColors() { // deselects before selecting another
@@ -163,6 +165,8 @@ Color ColorSelector::getColor() const {
     }
 }
 
+
+
 ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
     redButton = new Button(x, y, 20, 20, "");
     redButton->color(FL_RED);
@@ -194,6 +198,8 @@ ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
     previewBox = new Fl_Box(x + 200, y, 40, 40, "Color");
     previewBox->box(FL_BORDER_BOX);
     previewBox->labelsize(10);
+
+
 
     color = RED;
 
