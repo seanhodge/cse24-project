@@ -14,6 +14,11 @@ class Scribble: public Shape {
     float originX;
     float originY;
 
+    float offsetX;
+    float offsetY;
+
+    bool dragging;
+
 public:
 
     void addPoint(float x, float y, float r, float g, float b, int size);
@@ -28,7 +33,7 @@ public:
 
     void plusSize();
 
-     void minusSize();
+    void minusSize();
 
     Scribble();
 

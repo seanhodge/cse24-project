@@ -51,7 +51,12 @@ void Scribble::setColor(float r, float g, float b) {
 }
 
 void Scribble::setPosition(float x, float y) {
-    // drag all points relative to mx, my
+    std::cout << "Dragging..." << std::endl;
+    this->x = x;
+    this->y = y;
+    //kyinmon@ucmerced.edu
+    for (int i = 0; i < points.size(); i++) {
+        points[i]->setPosition(points[i]->getX() - (points[i]->getX() - x),points[i]->getY());
+    }
 
-    std::cout << "Dragging scribble" << std::endl;
 }

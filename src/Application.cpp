@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Enums.h"
 #include <bobcat_ui/bobcat_ui.h>
+#include "Scribble.h"
 
 using namespace bobcat;
 using namespace std;
