@@ -22,13 +22,19 @@ Triangle::Triangle(float x, float y, float r, float g, float b) {
 }
 
 void Triangle::plusSize() {
-    width += 0.2;
-    height += 0.2;
+    width += 0.1;
+    height += 0.1;
 }
 
 void Triangle::minusSize() {
-    width -= 0.2;
-    height -= 0.2;
+    width -= 0.1;
+    height -= 0.1;
+    if (width <= 0.1) {
+        width = 0.1;
+    }
+    if (height <= 0.1) {
+        height = 0.1;
+    }
 }
 
 void Triangle::draw() {

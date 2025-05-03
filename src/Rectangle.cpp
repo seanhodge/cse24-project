@@ -47,6 +47,12 @@ void Rectangle::plusSize() {
 void Rectangle::minusSize() {
     width -= 0.1;
     height -= 0.1;
+    if (width <= 0.05) {
+        width = 0.1;
+    }
+    if (height <= 0.05) {
+        height = 0.1;
+    }
 }
 
 void Rectangle::setColor(float r, float g, float b) {

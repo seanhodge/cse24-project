@@ -22,11 +22,14 @@ Circle::Circle(float x, float y, float r, float g, float b) {
 }
 
 void Circle::plusSize() {
-    radius += 0.2;
+    radius += 0.05;
 }
 
 void Circle::minusSize() {
-    radius -= 0.2;
+    radius -= 0.05;
+    if (radius <= 0.05) {
+        radius = 0.05;
+    }
 }
 
 bool Circle::contains(float mx, float my) {

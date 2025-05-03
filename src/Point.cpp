@@ -70,6 +70,9 @@ void Point::plusSize() {
 
 void Point::minusSize() {
     size -= 1;
+    if (size <= 0) {
+        size = 0.1;
+    }
 }
 
 void Point::setColor(float r, float g, float b) {

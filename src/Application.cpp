@@ -129,7 +129,7 @@ Application::Application() {
     selectedShape = nullptr;
 
     toolbar = new Toolbar(0, 0, 40, 520);
-    canvas = new Canvas(40, 0, 420, 480);
+    canvas = new Canvas(40, 0, 480, 480);
     colorSelector = new ColorSelector(40, 480, 400, 50);
     colorSelector->box(FL_BORDER_BOX);
 

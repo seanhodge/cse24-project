@@ -13,18 +13,21 @@ Pentagon::Pentagon() {
 Pentagon::Pentagon(float x, float y, float r, float g, float b) {
     this->x = x;
     this->y = y;
-    size = 0.4;
+    size = 0.5;
     this->r = r;
     this->g = g;
     this->b = b;
 }
 
 void Pentagon::plusSize() {
-    size += 0.2;
+    size += 0.1;
 }
 
 void Pentagon::minusSize() {
-    size -= 0.2;
+    size -= 0.1;
+    if (size <= 0.1) {
+        size = 0.1;
+    }
 }
 
 void Pentagon::draw() {
