@@ -24,11 +24,15 @@ Scribble::~Scribble(){
 }
 
 void Scribble::plusSize() {
-    //
+    for (int i = 0; i < points.size(); i++) {
+        points[i]->plusSize();
+    }
 }
 
 void Scribble::minusSize() {
-   //
+   for (int i = 0; i < points.size(); i++) {
+        points[i]->minusSize();
+    }
 }
 
 bool Scribble::contains(float mx, float my) {
@@ -47,12 +51,7 @@ void Scribble::setColor(float r, float g, float b) {
 }
 
 void Scribble::setPosition(float x, float y) {
-    points[0]->setPosition(x, y);
+    // drag all points relative to mx, my
 
-    originX = points[0]->getX();
-    originY = points[0]->getY();
-
-    for (int i = 1; i < points.size(); i++) {
-        
-    }
+    std::cout << "Dragging scribble" << std::endl;
 }

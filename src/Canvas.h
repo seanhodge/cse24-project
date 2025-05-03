@@ -37,8 +37,6 @@ public:
 
     int selectedPosition;
 
-    Shape* storageShape;
-
     Shape* selectedShape;
 
     void startScribble();

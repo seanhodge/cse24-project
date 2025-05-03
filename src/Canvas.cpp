@@ -91,7 +91,6 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
 }
 
 void Canvas::sendToBack(Shape* givenShape) {
-    storageShape = givenShape;
     for (unsigned int i = 0; i < shapes.size(); i++) {
         if (givenShape == shapes[i]) {
             shapes.erase(shapes.begin() + i);
@@ -101,7 +100,6 @@ void Canvas::sendToBack(Shape* givenShape) {
 }
 
 void Canvas::bringToFront(Shape* givenShape) {
-    storageShape = givenShape;
     for (unsigned int i = 0; i < shapes.size(); i++) {
         if (givenShape == shapes[i]) {
             shapes.erase(shapes.begin() + i);
@@ -111,7 +109,6 @@ void Canvas::bringToFront(Shape* givenShape) {
 }
 
 void Canvas::sizeUp(Shape* givenShape) {
-    storageShape = givenShape;
     for (int i = 0; i < shapes.size(); i++) {
         if (givenShape == shapes[i]) {
             shapes[i]->plusSize();
@@ -120,7 +117,6 @@ void Canvas::sizeUp(Shape* givenShape) {
 }
 
 void Canvas::sizeDown(Shape* givenShape) {
-    storageShape = givenShape;
     for (unsigned int i = 0; i < shapes.size(); i++) {
         if (givenShape == shapes[i]) {
             shapes[i]->minusSize();

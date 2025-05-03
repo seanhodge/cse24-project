@@ -70,8 +70,8 @@ void Point::plusSize() {
 
 void Point::minusSize() {
     size -= 1;
-    if (size <= 0) {
-        size = 0.1;
+    if (size <= 1) {
+        size = 1;
     }
 }
 
