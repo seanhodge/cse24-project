@@ -51,7 +51,30 @@ void Scribble::setColor(float r, float g, float b) {
 }
 
 void Scribble::setPosition(float x, float y) {
-    std::cout << this->x << ", " << this->y << std::endl;
+
+    // how to position other points to origin point?
+    // 
+    // if point1 is (3,5) and point2 follows at (5,9)
+    // then point1 moves to (5,7) newPos
+    // 
+    // the offset from point1's originalPos and newPos is:
+    // newX - oldX, newY - oldY
+    // giving the offset of
+    // 2, 2
+    // meaning point2 should be at 7, 11
     
+    originX = points[0]->getX();
+    originY = points[0]->getY();
+
+    points[0]->setPosition(x, y);
+
+    offsetX = points[0]->getX() - originX;
+    offsetY = points[0]->getY() - originY;
+
+    std::cout << offsetX << ", " << offsetY << std::endl;
+
+    for (unsigned int i = 1; i < points.size(); i++) {
+        points[i]->setPosition(points[i]->getX() + offsetX, points[i]->getY() + offsetY);
+    }
 
 }

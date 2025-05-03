@@ -35,6 +35,7 @@ public:
 
     void minusSize();
 
+
     Scribble();
 
     ~Scribble();
