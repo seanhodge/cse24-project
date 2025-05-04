@@ -8,6 +8,6 @@
     DONE ability to resize selected shape
     DONE ability to change color of selected shape/scribble
     DONE ability to move selected shape
-        INC scribble by dragging
+    DONE scribble by dragging
     DONE ability to bring selected shape/scribble to the front
     DONE ability to send selected shape/scribble to the back

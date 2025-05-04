@@ -109,7 +109,7 @@ void Canvas::bringToFront(Shape* givenShape) {
 }
 
 void Canvas::sizeUp(Shape* givenShape) {
-    for (int i = 0; i < shapes.size(); i++) {
+    for (unsigned int i = 0; i < shapes.size(); i++) {
         if (givenShape == shapes[i]) {
             shapes[i]->plusSize();
         }

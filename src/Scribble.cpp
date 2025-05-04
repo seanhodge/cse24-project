@@ -24,19 +24,19 @@ Scribble::~Scribble(){
 }
 
 void Scribble::plusSize() {
-    for (int i = 0; i < points.size(); i++) {
+    for (unsigned int i = 0; i < points.size(); i++) {
         points[i]->plusSize();
     }
 }
 
 void Scribble::minusSize() {
-   for (int i = 0; i < points.size(); i++) {
+   for (unsigned int i = 0; i < points.size(); i++) {
         points[i]->minusSize();
     }
 }
 
 bool Scribble::contains(float mx, float my) {
-    for (int i = 0; i < points.size(); i++) {
+    for (unsigned int i = 0; i < points.size(); i++) {
         if (abs(points[i]->getX() - mx) < 0.05 && abs(points[i]->getY() - my) < 0.05) {
             return true;
         }
@@ -45,7 +45,7 @@ bool Scribble::contains(float mx, float my) {
 }
 
 void Scribble::setColor(float r, float g, float b) {
-    for (int i = 0; i < points.size(); i++) {
+    for (unsigned int i = 0; i < points.size(); i++) {
         points[i]->setColor(r, g, b);
     }
 }
